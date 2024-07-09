@@ -16,6 +16,7 @@ session = Session()
 # Store declarative base class
 Base = declarative_base()
 
+
 # Define Recipe model
 class Recipe(Base):
     __tablename__ = "final_recipes"
@@ -62,8 +63,10 @@ class Recipe(Base):
         else:
             return self.ingredients.split(", ")
 
+
 # Create the table from the database
 Base.metadata.create_all(engine)
+
 
 # MAIN OPERATIONS
 # Define create_recipe()
@@ -126,10 +129,7 @@ def create_recipe():
 
     # Create recipe object
     recipe_entry = Recipe(
-        name = name,
-        cooking_time = cooking_time,
-        ingredients = ingredients_str,
-        difficulty = ""
+        name=name, cooking_time=cooking_time, ingredients=ingredients_str, difficulty="",
     )
 
     # Calculate recipe difficulty
@@ -140,6 +140,7 @@ def create_recipe():
     session.commit()
 
     print("\nRecipe successfully added")
+
 
 # Define view_all_recipes()
 def view_all_recipes():
@@ -153,6 +154,7 @@ def view_all_recipes():
     # Print each recipe via the __str__() method
     for recipe in recipes:
         print(recipe)
+
 
 # Define search_by_ingredients()
 def search_by_ingredients():
@@ -183,7 +185,9 @@ def search_by_ingredients():
         print(f"{i}. {ingredient}")
 
     # Take user input to select ingredients by number
-    selected_numbers = input("Select ingredients by their numbers, separated by spaces: ").split()
+    selected_numbers = input(
+        "Select ingredients by their numbers, separated by spaces: "
+    ).split()
 
     try:
         true_index = [int(num) - 1 for num in selected_numbers]
@@ -215,6 +219,7 @@ def search_by_ingredients():
             print(recipe)
     else:
         print("No recipes found with the selected ingredients")
+
 
 # Define edit_recipe()
 def edit_recipe():
@@ -256,7 +261,9 @@ def edit_recipe():
 
     # Take user input to select an attribute to edit
     try:
-        attribute_choice = int(input("\nEnter the number of the attribute to edit: ").strip())
+        attribute_choice = int(
+            input("\nEnter the number of the attribute to edit: ").strip()
+        )
 
         if attribute_choice not in [1, 2, 3]:
             raise ValueError
@@ -283,7 +290,9 @@ def edit_recipe():
     # COOKING TIME
     elif attribute_choice == 2:
         try:
-            new_cooking_time = int(input("\nEnter new cooking time (minutes): ").strip())
+            new_cooking_time = int(
+                input("\nEnter new cooking time (minutes): ").strip()
+            )
 
         except ValueError:
             print("Cooking time must be a number")
@@ -293,11 +302,18 @@ def edit_recipe():
 
     # INGREDIENTS
     elif attribute_choice == 3:
-        new_ingredients = input("\nEnter new ingredients, separate with a commas: ").strip()
+        new_ingredients = input(
+            "\nEnter new ingredients, separate with a commas: "
+        ).strip()
 
-        ingredients_list = [ingredient.strip() for ingredient in new_ingredients.split(", ")]
+        ingredients_list = [
+            ingredient.strip() for ingredient in new_ingredients.split(", ")
+        ]
 
-        if not all(all(char.isalpha() or char.isspace() for char in ingredient) for ingredient in ingredients_list):
+        if not all(
+            all(char.isalpha() or char.isspace() for char in ingredient)
+            for ingredient in ingredients_list
+        ):
             print("Each ingredient must only contain alphabetical characters")
             return None
 
@@ -310,6 +326,7 @@ def edit_recipe():
     session.commit()
 
     print("\nRecipe successfully updated")
+
 
 # Define delete_recipe()
 def delete_recipe():
@@ -347,7 +364,9 @@ def delete_recipe():
     print(f"\nRecipe to delete: {recipe_to_delete.name}")
 
     # Take user input to confirm recipe deletion
-    confirmation = input("\nAre you sure you want to delete this recipe? (Y/N)\n").strip()
+    confirmation = input(
+        "\nAre you sure you want to delete this recipe? (Y/N)\n"
+    ).strip()
 
     if confirmation == "Y":
         session.delete(recipe_to_delete)
@@ -356,6 +375,7 @@ def delete_recipe():
         print("\nRecipe successfully deleted")
     else:
         print("\nCancelling deletion..")
+
 
 # MAIN MENU
 # Define main_menu()
@@ -392,6 +412,7 @@ def main_menu():
             break
         else:
             print("invalid input")
+
 
 # MAIN CODE
 main_menu()
