@@ -1,0 +1,9 @@
+Recipe Model Updates:
+The only update I will make to the model will be to add the pic attribute to show an image with each recipe. I should add an app for Users to save their recipes. This new app would include attributes for their username and pic for their image.
+
+Frontend Inspirations:
+https://www.paprikaapp.com/
+I looked up recipe apps online and found a Reddit forum where this was being discussed. A lot of people were raving over Paprika, so I took a look. I like how clean the interface is, the use of white space, and general organization of the information. I like that the recipes can be ranked so you know how popular or good the recipe is. They have a calendar which can be used as a meal planner to set recipes/meals per day of the week. It appears they link out to the recipe itself. Each recipe is organized by ingredients, directions, and images.
+
+https://www.umami.recipes/
+Like Paprika, Umami works on desktop and mobile. It has a cleaner UI than Paprika with information more organized and displayed in a way that's easier to distinguish rather than each section, like ingredients and directions, being the same text size and just side by side as is the case with Paprika. Umami includes an active checklist so you can check off when you've used an ingredient to make sure they all make it in the cooking. Everything seems softer, such as rounded corners on images, and more approachable.
