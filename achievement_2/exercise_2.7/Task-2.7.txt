@@ -1,0 +1,30 @@
+Take some time to think of what you want users to search for, the criterion for search, and format of output.
+
+As someone who has used recipe apps in the past to find easy recipes to make, I would want users to be able to search for recipes by ingredients should they have a main ingredient they want to cook around and the name of the recipe in case there's something specific they're looking for.
+
+Criterion for Search:					Format of Output:
+{recipe.ingredients}					name
+{recipe.name}						name, ingredients, cooking_time, difficulty
+difficulty: "easy", "medium", "intermediate", "hard"	name, ingredients, cooking_time
+
+Data Analysis:
+Bar Graph: Display recipe name (x-axis) and cooking_time (y-axis)
+
+Line Graph: Display recipe name (x-axis) and number of ingredients (y-axis)
+
+Pie Chart: Display difficulty of all recipes by total percentage
+
+Execution Flow:
+User lands on homepage,
+User clicks 'login',
+User logs in with username and password,
+User lands on list of recipes,
+User clicks on a recipe,
+User lands on details of selected recipe,
+User goes back to list of recipes,
+User goes to search,
+User searches for a recipe by name,
+User clicks on name of recipe,
+User lands on details of selected recipe,
+User logs out
+
